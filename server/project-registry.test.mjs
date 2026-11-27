@@ -2,11 +2,12 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { PROJECTS, isAllowedRepository, safeRepositoryMetadata } from "./project-registry.mjs";
 
-test("registry contains only the three approved OCode.js repositories", () => {
-  assert.equal(PROJECTS.length, 3);
+test("registry contains the approved OCode.js and zskbot repositories", () => {
+  assert.equal(PROJECTS.length, 4);
   assert.equal(isAllowedRepository("OCodejs/ocodejs.github.io"), true);
   assert.equal(isAllowedRepository("zskbot/ask-ocodejs"), true);
   assert.equal(isAllowedRepository("OCodejs/docs-ocodejs"), true);
+  assert.equal(isAllowedRepository("zskbot/zskbot.github.io"), true);
   assert.equal(isAllowedRepository("attacker/other-repo"), false);
 });
 
