@@ -1,7 +1,8 @@
 export const PROJECTS = Object.freeze([
   { id: "ocodejs-profile", name: "OCode.js Profile", repository: "OCodejs/ocodejs.github.io", purpose: "Profile and ecosystem portal" },
   { id: "ask-ocodejs", name: "Ask OCode.js", repository: "zskbot/ask-ocodejs", purpose: "AI assistant and workspace" },
-  { id: "ocodejs-docs", name: "OCode.js Docs", repository: "OCodejs/docs-ocodejs", purpose: "Documentation and guides" }
+  { id: "ocodejs-docs", name: "OCode.js Docs", repository: "OCodejs/docs-ocodejs", purpose: "Documentation and guides" },
+  { id: "zskbot-site", name: "zskbot.github.io", repository: "zskbot/zskbot.github.io", purpose: "Static site and isolated Netlify Deploy Preview" }
 ]);
 
 export function safeRepositoryMetadata(repository, payload) {
