@@ -42,7 +42,7 @@ Netlify Functions expose:
 - `/.netlify/functions/health`
 - `/.netlify/functions/projects`
 
-The projects endpoint queries only the three fixed public repositories listed in `server/project-registry.mjs`. It exposes a strict metadata allowlist and has no write operations. The dashboard reads this endpoint when served through Netlify.
+The projects endpoint queries only the four fixed public repositories listed in `server/project-registry.mjs`. It exposes a strict metadata allowlist and has no write operations. The dashboard reads this endpoint when served through Netlify.
 
 Run `npm test` for registry allowlist and metadata-redaction tests, and `npm run check:functions` to validate function syntax.
 
@@ -57,3 +57,8 @@ This is intentionally a read-only snapshot:
 - Zone status (active/pending/initializing) is not equivalent to website health or provider-side domain verification.
 
 Before enabling live synchronization or domain assignment, configure a least-privilege Cloudflare API token as a server-side Netlify environment variable and add provider-side hostname verification. Never expose that token to the browser or commit it to Git.
+
+
+## zskbot.github.io Preview boundary
+
+`zskbot/zskbot.github.io` is registered as a read-only project in the dashboard. Its former Netlify Preview site remains owned by the separate `admin-gveq-c` team and has no confirmed successful deployment. This registry change does not transfer that site, attach a Git provider, create a deployment, or change GitHub Pages/Production. To show its deploy history inside this control center, first create or transfer a dedicated Netlify site into the OCodeJS team and grant the server-side token access to that site; never reuse the control center's own `NETLIFY_SITE_ID` for the target website.
